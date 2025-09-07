@@ -222,7 +222,7 @@ def main():
 
         # Benchmark all programs; verification only applied to Rust when enabled
         for p in programs:
-            print(f"[RUN] {p.name} n={n}")
+            print(f"[RUN] {p.name} n={n}", flush=True)
             r = BenchResult(program=p.name, input_value=n)
             for i in range(args.runs):
                 if verifier is not None and args.verify_per_run and p.name == "rust":
