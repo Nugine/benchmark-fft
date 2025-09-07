@@ -6,6 +6,7 @@ edition = "2024"
 [dependencies]
 bumpalo = { version = "3.19.0", features = ["collections"] }
 mimalloc = "0.1.48"
+multiversion = "0.8.0"
 
 [lib]
 name = "fft"

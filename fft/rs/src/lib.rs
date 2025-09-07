@@ -2,6 +2,7 @@ use std::f64::consts::PI;
 
 use bumpalo::Bump;
 use bumpalo::collections::vec::Vec as BumpVec;
+use multiversion::multiversion;
 
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub struct Complex {
@@ -60,6 +61,7 @@ impl std::ops::Mul<f64> for Complex {
 }
 
 pub fn fft(arr: &mut [Complex]) {
+    #[multiversion(targets = "simd")]
     fn _fft(arr: &mut [Complex], bump: &Bump) {
         let n = arr.len();
         if n == 1 {
